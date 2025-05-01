@@ -42,7 +42,28 @@ class Quiz {
     }
   }
 
-  filterQuestionsByDifficulty(difficulty){
-    
+  filterQuestionsByDifficulty(difficulty) {
+    let filteredQuestions = this.questions.filter((eachQuestion) => {
+      if (difficulty === eachQuestion.difficulty) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    if (difficulty !== 1 && difficulty !== 2 && difficulty !== 3) {
+      return;
+    }
+
+    this.questions = filteredQuestions;
+    return filteredQuestions;
   }
+
+  averageDifficulty(){
+    let avgDifficulty = this.questions.reduce((total, eachQuestion) =>{
+      return total + eachQuestion.difficulty
+    }, 0)
+    return avgDifficulty / this.questions.length
+  }
+
 }
