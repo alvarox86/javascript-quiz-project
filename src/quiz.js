@@ -29,7 +29,8 @@ class Quiz {
   }
   // 5. checkAnswer(answer)
   checkAnswer(answer) {
-    if (answer) {
+
+    if (answer === this.questions[this.currentQuestionIndex].answer) {
       this.correctAnswers++;
     }
   }
